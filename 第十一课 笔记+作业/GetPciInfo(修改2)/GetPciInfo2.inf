@@ -1,0 +1,18 @@
+[Defines]
+  INF_VERSION = 0x00010009
+  BASE_NAME = GetPciInfo2
+  FILE_GUID = 6987936E-ED34-ffdb-AE97-1FA5E45D2117
+  MODULE_TYPE = UEFI_APPLICATION
+  VERSION_STRING = 1.0
+  ENTRY_POINT = GetPciInfo2
+[Sources]
+  GetPciInfo2.c
+[Packages]
+  MdePkg/MdePkg.dec
+[Protocols]
+  gEfiPciIoProtocolGuid
+[LibraryClasses]   
+  UefiApplicationEntryPoint
+  UefiBootServicesTableLib
+  UefiLib
+  IoLib

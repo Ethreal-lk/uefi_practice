@@ -1,0 +1,19 @@
+[Defines]
+	INF_VERSION = 0x00010005
+	BASE_NAME = AccessTime
+	FILE_GUID = 44735447-fd68-43d1-a391-b75268a3bea0
+	MODULE_TYPE = UEFI_APPLICATION
+	VERSION_STRING = 1.0
+	ENTRY_POINT = UefiMain
+[Sources]
+	time.c
+	time.h
+	IO.asm
+	
+[Packages]
+	MdePkg/MdePkg.dec
+[libraryClasses]
+	UefiApplicationEntryPoint
+	UefiLib
+	IoLib
+	

@@ -1,0 +1,16 @@
+[Defines]
+  INF_VERSION = 0x00010005
+  BASE_NAME = BlockRead
+  FILE_GUID = 24f56319-ad8b-4e7c-9528-5aae86b9fe5c
+  MODULE_TYPE = UEFI_APPLICATION
+  VERSION_STRING = 1.0
+  ENTRY_POINT = UefiMain
+[Sources]
+  BlockRead.c
+[Packages]
+  MdePkg/MdePkg.dec
+[libraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+[Protocols]
+  gEfiBlockIoProtocolGuid
