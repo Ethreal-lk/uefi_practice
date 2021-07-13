@@ -171,11 +171,18 @@ USB设备所接入的集线器通过一个其状态变化管道上的响应向�
 
 ###USB policy overview
 
- 
+ ![avatar](/picture3/pic5.png)
 
 ###Info passed between USB and CSM
 
+![avatar](/picture3/pic6.png)
+
+
+![avatar](/picture3/pic7.png)
+
 ### Example of add USB module to a project
+![avatar](/picture3/pic8.png)
 
 
+![avatar](/picture3/pic9.png)
 
