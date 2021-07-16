@@ -9,6 +9,9 @@
  GetKeyInfo.c
 [Packages]
   MdePkg/MdePkg.dec
+
+[Protocols]
+  gEfiSimpleTextInputExProtocolGuid 
 [LibraryClasses]   
   UefiApplicationEntryPoint
   UefiLib
