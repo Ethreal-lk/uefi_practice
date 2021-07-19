@@ -1,7 +1,7 @@
 /*
  * @Author: Running snail
  * @Date: 2021-07-15 15:03:43
- * @LastEditTime: 2021-07-19 09:24:46
+ * @LastEditTime: 2021-07-19 13:41:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \edk2-UDK2018\AppPkg\Homework\PracticeExamples\1GerKeyInfo\GetKeyInfo.c
@@ -54,18 +54,27 @@ EFI_STATUS GetKeyInfo(
 			Print(L"\n");
 		}
 	}
-
+  Print(L"  Please press the keyboard:\n");
   gST->BootServices->WaitForEvent (1, &gST->ConIn->WaitForKey, &Index);
 
   Status = gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
   StrBUffer[0] = Key.UnicodeChar;
   StrBUffer[1] = '\n';
+  Print(L"  The keyboard you pressed is:");
   gST->ConOut->OutputString (gST->ConOut, StrBUffer);
 
   return EFI_SUCCESS;
 } 
 
 
+/**
+ * @description: Get information about pressing the keyboard
+ * @param {UINT16} *ScanCode
+ * @param {UINT16} *UniChar
+ * @param {UINT32} *ShiftState
+ * @param {EFI_KEY_TOGGLE_STATE *} ToggleState
+ * @return {*}
+ */
 EFI_STATUS GetKeyEx(UINT16 *ScanCode, UINT16 *UniChar, UINT32 *ShiftState, EFI_KEY_TOGGLE_STATE * ToggleState)
 {
 	EFI_STATUS                        Status;
@@ -109,7 +118,11 @@ EFI_STATUS GetKeyEx(UINT16 *ScanCode, UINT16 *UniChar, UINT32 *ShiftState, EFI_K
 }
 
 
-
+/**
+ * @description:Print the message of pressing the keyboard
+ * @param {UINT16} ScanData
+ * @return {*}
+ */
 EFI_STATUS ReadKey (UINT16 ScanData) {
   
 
@@ -136,8 +149,30 @@ EFI_STATUS ReadKey (UINT16 ScanData) {
       case 0x10:
       Print(L"  F6");
       break;
+      case 0x11:
+      Print(L"  F7");
+      break;
+      case 0x12:
+      Print(L"  F8");
+      break;
+      case 0x13:
+      Print(L"  F9");
+      break;
+      case 0x14:
+      Print(L"  F10");
+      break;
+      case 0x15:
+      Print(L"  F11");
+      break;
+      case 0x16:
+      Print(L"  F12");
+      break;
+
+
+
       default:
         break;
       }
-      return EFI_SUCCESS;
+
+  return EFI_SUCCESS;
 }
