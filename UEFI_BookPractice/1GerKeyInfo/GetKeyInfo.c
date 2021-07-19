@@ -1,7 +1,7 @@
 /*
  * @Author: Running snail
  * @Date: 2021-07-15 15:03:43
- * @LastEditTime: 2021-07-16 17:15:34
+ * @LastEditTime: 2021-07-19 09:24:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \edk2-UDK2018\AppPkg\Homework\PracticeExamples\1GerKeyInfo\GetKeyInfo.c
@@ -11,6 +11,8 @@
 #include <Library/UefiLib.h>
 
 EFI_STATUS GetKeyEx(UINT16 *ScanCode, UINT16 *UniChar, UINT32 *ShiftState, EFI_KEY_TOGGLE_STATE * ToggleState);
+
+EFI_STATUS ReadKey (UINT16 ScanData);    
 EFI_STATUS GetKeyInfo(
               IN EFI_HANDLE ImageHandle, 
               IN EFI_SYSTEM_TABLE *gST
@@ -44,10 +46,11 @@ EFI_STATUS GetKeyInfo(
 		{
 			Print(L"NO.%08d\n",count);
 			++count;
-			Print(L"  ScanCode=%04x",ScanCode);
-			Print(L"  UnicodeChar=%04x",UniChar);
-			Print(L"  ShiftState=%08x",ShiftState);
-			Print(L"  ToggleState=%02x",ToggleState);
+			Print(L"  ScanCode=0x%04x",ScanCode);
+      ReadKey (ScanCode);
+			Print(L"  UnicodeChar=0x%04x %c",UniChar,UniChar);
+			Print(L"  ShiftState=0x%08x",ShiftState);
+			Print(L"  ToggleState=0x%02x",ToggleState);
 			Print(L"\n");
 		}
 	}
@@ -103,4 +106,38 @@ EFI_STATUS GetKeyEx(UINT16 *ScanCode, UINT16 *UniChar, UINT32 *ShiftState, EFI_K
     }
   }	 
 	return Status;
+}
+
+
+
+EFI_STATUS ReadKey (UINT16 ScanData) {
+  
+
+      switch (ScanData)
+      {
+      case 0x0A:
+      Print(L"  ESC");
+        break;
+      case 0x0B:
+      Print(L"  F1");
+      break;
+      case 0x0C:
+      Print(L"  F2");
+      break;
+      case 0x0D:
+      Print(L"  F3");
+      break;
+      case 0x0E:
+      Print(L"  F4");
+      break;
+      case 0x0F:
+      Print(L"  F5");
+      break;
+      case 0x10:
+      Print(L"  F6");
+      break;
+      default:
+        break;
+      }
+      return EFI_SUCCESS;
 }
