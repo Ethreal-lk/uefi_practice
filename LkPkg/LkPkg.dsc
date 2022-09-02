@@ -39,7 +39,9 @@
   MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
   DevicePathLib|MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
   UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+  ShellCEntryLib|ShellPkg/Library/UefiShellCEntryLib/UefiShellCEntryLib.inf
 [Components]
 #LkPkg/helloworld.inf
 LkPkg/Protocol_Practice/Protocol_Practice.inf
 LkPkg/AcpiTest/acpitest.inf
+LkPkg/shellmain/shellmian.inf
