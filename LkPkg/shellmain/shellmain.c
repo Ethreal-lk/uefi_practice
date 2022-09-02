@@ -44,7 +44,7 @@ ShellAppMain (
     gRT->GetTime(&curTime,NULL);
     PrintTIme(curTime);
     SetDefaultTime(&curTime);
-    for (index = 0; index < 10; index++) {
+    for (index = 0; index < PRINT_COUNT; index++) {
         gRT->GetTime(&curTime,NULL);
         PrintTIme(curTime);
         gBS->Stall(DELAY_1_S);
