@@ -43,5 +43,5 @@
 [Components]
 #LkPkg/helloworld.inf
 LkPkg/Protocol_Practice/Protocol_Practice.inf
-LkPkg/AcpiTest/acpitest.inf
+# LkPkg/AcpiTest/acpitest.inf
 LkPkg/shellmain/shellmian.inf
