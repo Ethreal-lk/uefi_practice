@@ -1,9 +1,9 @@
 [Defines]
-  PLATFORM_NAME                  = HelloworldPkg
+  PLATFORM_NAME                  = LkPkg
   PLATFORM_GUID                  = 28C2E5E2-CB49-FB6B-6E02-B610538A41E9
   PLATFORM_VERSION               = 0.01
   DSC_SPECIFICATION              = 0x00010006
-  OUTPUT_DIRECTORY               = Build/HelloWorldPkg
+  OUTPUT_DIRECTORY               = Build/LkPkg
   SUPPORTED_ARCHITECTURES        = IA32
   BUILD_TARGETS                  = DEBUG|RELEASE|NOOPT
   SKUID_IDENTIFIER               = DEFAULT
