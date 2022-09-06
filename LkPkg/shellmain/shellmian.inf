@@ -16,6 +16,7 @@ shellmain.c
 [Packages]
 MdePkg/MdePkg.dec
 ShellPkg/ShellPkg.dec
+LkPkg/LkPkg.dec
 
 [LibraryClasses]
 UefiLib

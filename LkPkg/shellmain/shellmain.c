@@ -3,6 +3,7 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include  <Library/ShellCEntryLib.h>
+#include  <AMI/AmiKeycode.h>
 
 #define     DELAY_1_S       1000000
 #define     PRINT_COUNT     5
@@ -14,6 +15,9 @@
 #define     DEFAULT_HOUR    0
 #define     DEFAULT_MINUTE  0
 #define     DEFAULT_SECOND  0
+
+
+AMI_EFI_KEY_DATA AMIKeyData;
 
 
 EFI_STATUS QuryGraphicInfo(){
@@ -91,15 +95,19 @@ ShellAppMain (
     IN CHAR16 **Argv)
 {
     EFI_TIME curTime;
-    INTN  index;
+    INTN  Index;
     EFI_STATUS Status;
+    Print(L"Please input a key:\n");
+    gST->BootServices->WaitForEvent (1, &gST->ConIn->WaitForKey, &Index);
+    Status = gST->ConIn->ReadKeyStroke (gST->ConIn, &AMIKeyData.Key);
+    Print(L"key's Unicode is 0x%04x\n", AMIKeyData.Key.ScanCode);
 
     Print(L"hello ,this is Entry of shellMain!\n");
     gBS->Stall(DELAY_1_S);
     gRT->GetTime(&curTime,NULL);
     PrintTIme(curTime);
     SetDefaultTime(&curTime);
-    for (index = 0; index < PRINT_COUNT; index++) {
+    for (Index = 0; Index < PRINT_COUNT; Index++) {
         gRT->GetTime(&curTime,NULL);
         PrintTIme(curTime);
         gBS->Stall(DELAY_1_S);
